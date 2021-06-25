@@ -113,14 +113,14 @@ try:
         fig.update_layout(width=800,height=600)
         col4.write(fig)
 
-        #col5, col6 = st.beta_columns(2)
+        col5, col6 = st.beta_columns(2)
         fig=px.bar(df,x='province',y=['confirmed','active','recovered','deaths'],template='xgridoff',
         title='Total Confirmed Cases ' +'<b>'+ str(total_confirmed) + '</b>''<br>' +
         'Total Deaths ' +'<b>'+ str(total_deaths) + '</b>''<br>' +
         'Total Recovered cases ' +'<b>'+ str(total_recovered) +'</b>' '<br>' +
         'Total Active cases ' +'<b>'+ str(total_active))
         fig.update_layout(width=1000,height=550)
-        st.write(fig) 
+        col5.write(fig) 
 
         lat = df['lat'].astype(float)
         lon=df['long'].astype(float)
@@ -136,7 +136,7 @@ try:
                     #animation_frame='province',
             mapbox_style="carto-positron",
         )
-        fig.update_layout(width=1000,height=500)
+        fig1.update_layout(width=1000,height=600,margin={"r":0,"t":0,"l":0,"b":0})
         st.write(fig1)
 except:
     'Data will be update 12 am today, meahwhile have a', ':beer:'
